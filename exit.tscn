@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://sae4qp6v0k0l"]
+
+[ext_resource type="Script" uid="uid://0hdw7so6k7wx" path="res://exit.gd" id="1_24kvk"]
+[ext_resource type="Texture2D" uid="uid://dfhleefa26qqg" path="res://Assets/Items/Checkpoints/End/End (Pressed) (64x64).png" id="2_24kvk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlcv5"]
+atlas = ExtResource("2_24kvk")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pinn1"]
+atlas = ExtResource("2_24kvk")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0uvg"]
+atlas = ExtResource("2_24kvk")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_286a5"]
+atlas = ExtResource("2_24kvk")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a414d"]
+atlas = ExtResource("2_24kvk")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kk3o8"]
+atlas = ExtResource("2_24kvk")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3a1lu"]
+atlas = ExtResource("2_24kvk")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jp1c7"]
+atlas = ExtResource("2_24kvk")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jcq7d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlcv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pinn1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0uvg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_286a5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a414d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kk3o8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3a1lu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jp1c7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yuntp"]
+radius = 20.0
+
+[node name="Exit" type="Area2D" unique_id=783523946]
+script = ExtResource("1_24kvk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=145816453]
+sprite_frames = SubResource("SpriteFrames_jcq7d")
+frame_progress = 0.5666953
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2005410690]
+shape = SubResource("CircleShape2D_yuntp")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
